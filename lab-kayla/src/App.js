@@ -33,7 +33,30 @@ class App extends Component {
           onColorChange={color => this.handleColorChange(color)}
           onNameChange={name => this.handleNamechange(name)}
         />
-        
+
+      </div>
+    )
+  }
+}
+
+class Controls extends Component {
+  render() {
+    const { words, color, name, onWordsChange, onColorChange, onNameChange} = this.props
+
+    return(
+      <div>
+        <label>
+          words:
+          <input name="words" value={words} onChange={({ target }) => onWordsChange(target.value)}/>
+        </label>
+        <label>
+          color:
+          <input name="color" type="color" value={color} onChange={({ target }) => onColorChange(target.value)}/>
+        </label>
+        <label>
+          name:
+          <input name="name" value={name} onChange={({ target }) => onNameChange(target.value)}/>
+        </label>
       </div>
     )
   }
